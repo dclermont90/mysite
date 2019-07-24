@@ -10,3 +10,7 @@ npm-debug.log
 yarn-error.log
 .env
 .env.example
+.env.ci
+.env-prod
+docker/app/packaged/*
+!docker/app/packaged/.gitkeep

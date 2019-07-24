@@ -29,11 +29,16 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
 COPY default /etc/nginx/sites-available/default
-
 COPY php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf
+COPY xdebug.ini /etc/php/7.3/mods-available/xdebug.ini
 
 EXPOSE 80
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY start-container /usr/local/bin/start-container
+RUN chmod +x usr/local/bin/start-container
 
-CMD ["/usr/bin/supervisord"]
+CMD ["start-container"]
+
+COPY packaged /var/www/html
+RUN chown -R www-data: /var/www/html
