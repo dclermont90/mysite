@@ -3,4 +3,20 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/.env" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/.env.example" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/.styleci.yml" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/composer.json" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/composer.lock" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/docker-compose.base.yml" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/docker-compose.ci.yml" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/docker-compose.dev.yml" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/docker-compose.yml" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/package.json" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/phpunit.xml" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/server.php" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/webpack.mix.js" />
+    <file url="file://$PROJECT_DIR$/docker/app/packaged/yarn.lock" />
+  </component>
 </project>

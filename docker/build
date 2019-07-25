@@ -25,8 +25,8 @@ cd $DIR/app/packaged
 # Build the Docker image with latest code
 cd $DIR/app
 docker build \
-    -t clermontconviodera/app:latest \
-    -t clermontconviodera/app:$HASH .
+    -t clermontconvidera/app:latest \
+    -t clermontconvidera/app:$HASH .
 
 # Clean up packaged directory
 cd $DIR/app/packaged
