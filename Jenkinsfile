@@ -10,13 +10,10 @@ node('master') {
 
             // Get composer dependencies
             sh "./develop composer install"
-
-            // Create .env file for testing
-       		 sh 'cp .env.example .env'
-       		 sh './develop art key:generate'
-       		 sh 'sed -i "s/REDIS_HOST=.*/REDIS_HOST=redis/" .env'
-       		 sh 'sed -i "s/CACHE_DRIVER=.*/CACHE_DRIVER=redis/" .env'
-        	 sh 'sed -i "s/SESSION_DRIVER=.*/SESSION_DRIVER=redis/" .env'
+		
+	    // Create .env file for testing
+            sh 's3cmd get s3://dominique-test-space/.env-prod .env'
+            sh './develop art key:generate'
 	 }
 
         stage('test') {
