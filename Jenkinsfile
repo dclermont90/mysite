@@ -12,7 +12,7 @@ node('master') {
             sh "./develop composer install"
 		
 	    // Create .env file for testing
-            sh 's3cmd get s3://dominique-test-space/.env-prod .env'
+            sh 's3cmd get s3://dominique-test-space/.env-prod .env --force'
             sh './develop art key:generate'
 	 }
 
