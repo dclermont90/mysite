@@ -24,6 +24,7 @@ cd $DIR/app/packaged
 
 # Get the production .env file
 ## This assumes we're running in Jenkins as user "jenkins"
+sh 'id'
 sh 's3cmd get s3://dominique-test-space/.env-prod .env'
 
 # Build the Docker image with latest code
