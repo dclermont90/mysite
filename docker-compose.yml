@@ -4,7 +4,7 @@ services:
     build:
       context: ./docker/app
       dockerfile: Dockerfile
-    image: shippingdocker.com/app
+    image: clermontconvidera/app:latest
     volumes:
      - .:/var/www/html
     ports:
