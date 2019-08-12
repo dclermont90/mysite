@@ -19,6 +19,7 @@ RUN apt-get update \
        php7.3-sqlite3 php7.3-xdebug \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && mkdir /run/php \
+    && apt-get install -y vim
     && apt-get remove -y --purge software-properties-common \
     && apt-get -y autoremove \
     && apt-get clean \
