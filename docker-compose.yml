@@ -5,8 +5,6 @@ services:
       context: ./docker/app
       dockerfile: Dockerfile
     image: clermontconvidera/app:latest
-    volumes:
-     - .:/var/www/html
     ports:
      - "80:80"
     networks:
