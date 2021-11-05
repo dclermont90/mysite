@@ -15,7 +15,7 @@ services:
     build:
       context: ./docker/node
       dockerfile: Dockerfile
-    image: shippingdocker.com/node
+    image: clermontconvidera/node
     volumes:
      - .:/var/www/html
     networks:
