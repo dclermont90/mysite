@@ -4,7 +4,7 @@ services:
     build:
       context: ./docker/app
       dockerfile: Dockerfile
-    image: clermontconvidera/app
+    image: shippingdocker/app
     volumes:
      - .:/var/www/html
     networks:
@@ -13,7 +13,7 @@ services:
     build:
       context: ./docker/node
       dockerfile: Dockerfile
-    image: clermontconvidera/node
+    image: shippingdocker/node
     volumes:
      - .:/var/www/html
     networks:
