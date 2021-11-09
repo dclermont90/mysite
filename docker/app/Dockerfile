@@ -36,5 +36,3 @@ EXPOSE 80
 CMD ["/usr/bin/supervisord"]
 
 COPY packaged /var/www/html
-
-RUN chown -R www:data: /var/www/html
