@@ -53,9 +53,6 @@ jobs:
       - name: Install dev dependencies
         run: ./develop composer install
 
-      - name: Get CI env file
-        run: aws s3 cp --endpoint=https://fra1.digitaloceanspaces.com s3://dominique-test-space/.env-ci .env
-
       - name: Setup Laravel
         run: ./develop art key:generate && ./develop art passport:keys
 
