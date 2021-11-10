@@ -32,7 +32,6 @@ docker build \
     -t shippingdocker/app:latest \
     -t shippingdocker/app:$HASH .
 
-
 # Clean up packaged directory
 cd $DIR/app/packaged
 PWD=$(pwd)
