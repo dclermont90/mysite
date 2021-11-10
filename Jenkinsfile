@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+def branch = BRANCH_NAME
 
 node('master') {
     try {
@@ -18,6 +19,12 @@ node('master') {
 
         stage('test') {
             sh "APP_ENV=testing ./develop test"
+        }
+
+        if( $BRANCH_NAME == 'master' ) {
+            stage('package') {
+                sh './docker/build'
+            }
         }
     } catch(error) {
         // Maybe some alerting?
