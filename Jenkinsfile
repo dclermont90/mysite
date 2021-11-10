@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-def branch = BRANCH_NAME
 
 node('master') {
     try {
@@ -21,7 +20,7 @@ node('master') {
             sh "APP_ENV=testing ./develop test"
         }
 
-        if( $BRANCH_NAME == 'master' ) {
+        if( env.BRANCH_NAME == 'master' ) {
             stage('package') {
                 sh './docker/build'
             }
