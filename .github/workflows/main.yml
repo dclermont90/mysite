@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       # See: https://github.com/actions/cache
       # Cache Composer Dependencies
       - name: Get Composer Cache Directory
@@ -37,16 +37,16 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-    
-      # See: https://github.com/aws-actions/configure-aws-credentials
-      # Setup AWS environment variables from GitHub secrets
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+
+      - name: Copy a file from s3
+        uses: prewk/s3-cp-action@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-    
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_s3_endpoint: 'https://fra1.digitaloceanspaces.com'
+          source: 's3://dominique-test-space/.env-ci'
+          dest: './.env'
+
       - name: Start Environment
         run: ./develop up -d
 
@@ -55,7 +55,7 @@ jobs:
 
       - name: Get CI env file
         run: aws s3 cp --endpoint=https://fra1.digitaloceanspaces.com s3://dominique-test-space/.env-ci .env
-      
+
       - name: Setup Laravel
         run: ./develop art key:generate && ./develop art passport:keys
 
