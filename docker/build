@@ -36,10 +36,6 @@ docker build \
 cd $DIR/app/packaged
 PWD=$(pwd)
 if [ "$PWD" == "$DIR/app/packaged" ]; then
-    # The "vendor" directory (any any built assets!) will be owned
-    # as user "root" on the Linux file system
-    # So we'll use Docker to delete them with a one-off container
-    rm -rf ./*
-    rm -rf ./.*
+docker run --rm -w /opt -v $(pwd):/opt ubuntu:16.04 bash -c "rm -rf ./* && rm -rf ./.git* && rm .env*"
     touch .gitkeep
 fi
