@@ -24,7 +24,7 @@ cd $DIR/app/packaged
 
 # Get the production .env file
 ## This assumes we're running in Jenkins as user "jenkins"
-aws s3 cp --endpoint=https://fra1.digitaloceanspaces.com s3://dominique-test-space/.env-prod .env
+#aws s3 cp --endpoint=https://fra1.digitaloceanspaces.com --region=fra1 s3://dominique-test-space/.env-prod .env
 
 # Build the Docker image with latest code
 cd $DIR/app
