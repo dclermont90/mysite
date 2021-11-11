@@ -59,8 +59,12 @@ jobs:
       - name: Run tests
         run: APP_ENV=testing ./develop test
 
+      - name: Generate Registry Configuration
+        run: ./docker/build-registry-config ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        if: github.ref == 'refs/heads/master'
+
       - name: Start Docker Private Registry
-        run: docker run -d -p 5000:5000 registry:2
+        run: docker run -d -p 5000:5000 -v $(pwd)/docker/registry-config.yml:/etc/docker/registry/config.yml registry:2
         if: github.ref == 'refs/heads/master'
 
       - name: Build and push production image

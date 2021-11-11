@@ -1,0 +1,21 @@
+version: 0.1
+storage:
+  s3:
+    accesskey: AWS_ACCESS_KEY_ID
+    secretkey: AWS_SECRET_ACCESS_KEY
+    region: fra1
+    regionendpoint: https://fra1.digitaloceanspaces.com
+    bucket: dominique-test-space/images
+    encrypt: true
+    secure: true
+    v4auth: true
+  maintenance:
+    uploadpurging:
+      enabled: true
+      age: 168h
+      interval: 24h
+      dryrun: false
+    readonly:
+      enabled: false
+http:
+  addr: :5000
