@@ -29,8 +29,8 @@ aws s3 cp --endpoint=https://fra1.digitaloceanspaces.com s3://dominique-test-spa
 # Build the Docker image with latest code
 cd $DIR/app
 docker build \
-    -t shippingdocker/app:latest \
-    -t shippingdocker/app:$HASH .
+    -t localhost:5000/shippingdocker/app:latest \
+    -t localhost:5000/shippingdocker/app:$HASH .
 
 # docker push localhost:5000/shippingdocker/app:latest
 # docker push localhost:5000/shippingdocker/app:$HASH
