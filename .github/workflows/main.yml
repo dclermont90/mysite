@@ -58,3 +58,11 @@ jobs:
 
       - name: Run tests
         run: APP_ENV=testing ./develop test
+
+      - name: Start Docker Private Registry
+        run: docker run -d -p 5000:5000 registry:2
+        if: github.ref == 'refs/heads/master'
+
+      - name: Build and push production image
+        run: ./docker/build
+        if: github.ref == 'refs/heads/master'
