@@ -33,5 +33,5 @@ docker build \
     -t localhost:5000/shippingdocker/app:$HASH .
 
 # push
- docker push localhost:5000/shippingdocker/app:latest
- docker push localhost:5000/shippingdocker/app:$HASH
+# docker push localhost:5000/shippingdocker/app:latest
+# docker push localhost:5000/shippingdocker/app:$HASH
