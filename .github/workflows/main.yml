@@ -59,13 +59,14 @@ jobs:
       - name: Run tests
         run: APP_ENV=testing ./develop test
 
-      - name: Generate Registry Configuration
-        run: ./docker/build-registry-config ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        if: github.ref == 'refs/heads/master'
-
-      - name: Start Docker Private Registry
-        run: docker run -d -p 5000:5000 -v $(pwd)/docker/registry-config.yml:/etc/docker/registry/config.yml registry:2
-        if: github.ref == 'refs/heads/master'
+      - name: Copy a file from s3
+        uses: prewk/s3-cp-action@v2
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_s3_endpoint: 'https://fra1.digitaloceanspaces.com'
+          source: 's3://dominique-test-space/.env-prod'
+          dest: './.env'
 
       - name: Build and push production image
         run: ./docker/build

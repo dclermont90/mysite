@@ -4,7 +4,7 @@ services:
     build:
       context: ./docker/app
       dockerfile: Dockerfile
-    image: shippingdocker/app:latest
+    image: clermontconvidera/app:latest
     volumes:
      - .:/var/www/html
     ports:
@@ -15,7 +15,7 @@ services:
     build:
       context: ./docker/node
       dockerfile: Dockerfile
-    image: shippingdocker/node
+    image: clermontconvidera/node
     volumes:
      - .:/var/www/html
     networks:
