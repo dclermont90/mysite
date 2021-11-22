@@ -29,9 +29,9 @@ cd $DIR/app/packaged
 # Build the Docker image with latest code
 cd $DIR/app
 docker build \
-    -t clermontconvidera/app:latest \
-    -t clermontconvidera/app:$HASH .
+    -t localhost:5000/clermontconvidera/app:latest \
+    -t localhost:5000/clermontconvidera/app:$HASH .
 
 # push
- docker push clermontconvidera/app:latest
- docker push clermontconvidera/app:$HASH
+ docker push localhost:5000/clermontconvidera/app:latest
+ docker push localhost:5000/clermontconvidera/app:$HASH

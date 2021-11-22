@@ -5,10 +5,10 @@ storage:
     secretkey: AWS_SECRET_ACCESS_KEY
     region: fra1
     regionendpoint: https://fra1.digitaloceanspaces.com
-    bucket: dominique-test-space/images
+    bucket: dominique-test-space
     encrypt: true
-    secure: false
-    v4auth: false
+    secure: true
+    v4auth: true
   maintenance:
     uploadpurging:
       enabled: true
@@ -19,6 +19,4 @@ storage:
       enabled: false
 http:
   addr: :5000
-validation:
-  disabled: true
 
