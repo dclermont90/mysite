@@ -85,9 +85,9 @@ jobs:
      #   username: ${{ secrets.DOCKER_LOGIN }}
      #   password: ${{ secrets.DOCKER_TOKEN }}
 
-#      - name: Build and push production image
-#        run: ./docker/build
-#        if: github.ref == 'refs/heads/master'
+      - name: Build and push production image
+        run: ./docker/build
+        if: github.ref == 'refs/heads/master'
 #
 #      - name: executing remote ssh commands using password
 #        uses: appleboy/ssh-action@master
