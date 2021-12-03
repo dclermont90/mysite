@@ -94,4 +94,4 @@ jobs:
           host: 207.154.239.177
           username: root
           key: ${{ secrets.PRIVATE_KEY }}
-          script: deploy
+          script: ./deploy
